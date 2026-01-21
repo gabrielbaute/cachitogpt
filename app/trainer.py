@@ -14,7 +14,7 @@ class TrainModule:
     """
     Encapsula la lógica de entrenamiento del modelo GPT.
     """
-    def __init__(self, config: Config, dataset_path: Path, model_name: Optional[str] = None):
+    def __init__(self, config: Config, dataset_path: Path, model_name: Optional[str] = None, stride: Optional[int] = None):
         """
         Inicializa el módulo de entrenamiento.
 
@@ -22,10 +22,12 @@ class TrainModule:
             config(Config): Configuración del modelo.
             dataset_path(Path): Ruta al archivo de datos.
             model_name(Optional[str]): Nombre opcional del modelo.
+            stride(Optional[int]): Desplazamiento entre ejemplos.
         """
         self.config = config
         self.dataset_path = dataset_path
         self.model_name = model_name if model_name else config.MODEL_NAME
+        self.stride = stride if stride is not None else config.MAX_SEQ_LEN
         self.checkpoint_dir = self.config.CHECKPOINT_DIR
         self.logger = logging.getLogger(self.__class__.__name__)
         
@@ -118,7 +120,7 @@ class TrainModule:
     def train(self):
         """Ejecuta el bucle principal de entrenamiento."""
         # Cargar datos
-        dataset = TextDataset(str(self.dataset_path), self.tokenizer, self.config.MAX_SEQ_LEN)
+        dataset = TextDataset(str(self.dataset_path), self.tokenizer, self.config.MAX_SEQ_LEN, stride=self.stride)
         # num_workers=0 es mejor para debuggear en Windows, 
         # pin_memory ayuda a la transferencia si usaras GPU, pero en CPU no estorba.
         train_loader = DataLoader(dataset, batch_size=self.config.BATCH_SIZE, shuffle=True)
