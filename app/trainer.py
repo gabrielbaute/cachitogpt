@@ -108,7 +108,7 @@ class TrainModule:
 
     def save_checkpoint(self, epoch: int, loss: float) -> None:
         """Guarda una 'foto' del estado actual del laboratorio."""
-        path = self.config.MODEL_DIR / f"checkpoint_epoch_{epoch+1}.pth"
+        path = self.config.CHECKPOINT_DIR / f"checkpoint_epoch_{epoch+1}.pth"
         torch.save({
             'epoch': epoch,
             'model_state_dict': self.model.state_dict(),
