@@ -17,7 +17,7 @@ class Config:
 
     # Rutas de los directorios
     DATA_DIR: Path = BASE_DIR / "data"
-    MODEL_DIR: Path = BASE_DIR / "model"
+    MODEL_DIR: Path = BASE_DIR / "models"
     TOKENIZER_DIR: Path = BASE_DIR / "tokenizer"
     CHECKPOINT_DIR: Path = BASE_DIR / "checkpoint"
     LOG_DIR: Path = BASE_DIR / "logs"
