@@ -1,0 +1,18 @@
+# venv
+venv/
+*.venv
+
+# Cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/
+*.log
+*.err
+
+# Modelos y data
+models/
+data/
+tokenizer/
+checkpoint/
