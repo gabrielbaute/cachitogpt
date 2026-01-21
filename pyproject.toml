@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "GPT-Trainer"
+version = "0.0.0"
+description = "Pequeña app para entrenar y generar tus propios modelos."
+authors = ["Gabriel Baute <gabrielbaute@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+# Core apps
+tokenizers = "0.22.2"
+torch = "2.9.1+cpu"
+torchaudio = "2.9.1+cpu"
+torchvision = "0.24.1+cpu"
+
+# Utils
+pyfiglet = "1.0.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+black = "^24.0.0"
+ruff = "^0.4.0"
+bumpver = "^2023.1129"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
