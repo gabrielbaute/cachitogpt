@@ -29,7 +29,6 @@ class Config:
     CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-
     # Rutas de archivos específicos
     TOKENIZER_PATH: Path = TOKENIZER_DIR / "tokenizer.json"
     MODEL_WEIGHTS_PATH: Path = MODEL_DIR / "gpt_model_pesos.pth"
@@ -44,6 +43,22 @@ class Config:
     BATCH_SIZE: int = 8    # Cuántas frases procesamos a la vez (8 Min)
     EPOCHS: int = 5        # Cuántas veces recorreremos el libro entero (5 Min)
     LEARNING_RATE: float = 3e-4
+
+    # ======= API ========
+    
+    # Rutas de interfaz para la API
+    UI_DIR = Path(__file__).parent.parent / "ui"
+    STATIC_DIR = UI_DIR / "static"
+    INDEX_HTML = UI_DIR / "index.html"
+
+    # Parámetros de la API
+    API_HOST: str = "0.0.0.0"
+    API_PORT: int = 8000
+    API_ALLOW_ORIGINS: list = ["*"]
+    API_ALLOW_METHODS: list = ["*"]
+    API_ALLOW_HEADERS: list = ["*"]
+    API_ALLOW_CREDENTIALS: bool = True
+    API_DEBUG: bool = True
 
     @classmethod
     def preset_50_percent(cls) -> Dict[str, int]:
