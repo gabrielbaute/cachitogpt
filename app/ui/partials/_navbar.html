@@ -1,0 +1,33 @@
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="{{ url_for('static', path='/img/logo.png') }}" style="border-radius: 4px;">
+        <strong class="ml-2 is-size-4">{{ app_name }}</strong>
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarMain" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">Inicio</a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="logout-btn" class="button is-light is-outlined is-hidden" onclick="logout()">
+              Cerrar Sesión
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
