@@ -8,11 +8,21 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-# Core apps
+
+# Model dependencies
 tokenizers = "0.22.2"
 torch = "2.9.1+cpu"
 torchaudio = "2.9.1+cpu"
 torchvision = "0.24.1+cpu"
+
+# API
+fastapi = "^0.115.0"
+uvicorn = {extras = ["standard"], version = "^0.31.0"}
+jinja2 = "^3.1.0"
+python-multipart = "^0.0.12"
+
+# Data & Config
+pydantic = {extras = ["email"], version = "^2.10.0"}
 
 # Utils
 pyfiglet = "1.0.4"
