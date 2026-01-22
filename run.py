@@ -3,11 +3,11 @@ from pathlib import Path
 from app.generator import TextGenerator
 from app.settings import setup_logging, Banner, Config
 
-setup_logging(model_name="cachito")
+setup_logging(model_name="dussel")
 logger_generator = logging.getLogger("TextGenerator")
 
 def main():
-    generator = TextGenerator(model_name="cachito")
+    generator = TextGenerator(model_name="dussel")
     banner = Banner(name=Config.MODEL_NAME, version=Config.MODEL_VERSION)
     print(f"{banner.get_banner()}")
     print("Escribe 'salir' para terminar.")
@@ -25,7 +25,7 @@ def main():
                 top_k=100,
                 top_p=0.95
             )
-            print(f"\n{Config.MODEL_NAME} -> {resultado}\n")
+            print(f"\n{Config.MODEL_NAME} -> {resultado.texto_generado}\n")
         except Exception as e:
             logger_generator.error(f"Error en generación: {e}")
 
