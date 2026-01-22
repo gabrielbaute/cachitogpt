@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Optional
 
 from app.gpt import GPTModel, BPETokenizer
+from app.schemas.model_response import CachitoResponse
 from app.settings import Config
 
 class TextGenerator:
@@ -65,7 +66,8 @@ class TextGenerator:
             temperature: float = 0.8,
             top_k: int = 40,
             top_p: float = 0.9,
-            repetition_penalty: float = 1.2):
+            repetition_penalty: float = 1.2
+        ) -> CachitoResponse:
         """
         Genera texto con filtros avanzados. 
         Nota: Usa self.max_seq_len cargado del JSON para el contexto.
@@ -112,8 +114,14 @@ class TextGenerator:
                 
                 if next_token.item() == self.tokenizer.tokenizer.token_to_id("[SEP]"):
                     break
-            
-        return self.tokenizer.decode(generated)
+
+        response = CachitoResponse(
+            id=self.model_name,
+            tokens_del_mensaje=len(tokens),
+            tokens_generados=len(generated),
+            texto_generado=self.tokenizer.decode(generated)
+        ) 
+        return response
     
     def generate(self, prompt: str, max_new_tokens: int = 50, temperature: float = 0.8):
         """
