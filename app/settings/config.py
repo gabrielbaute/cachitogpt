@@ -9,7 +9,7 @@ class Config:
     """
     # Información del modelo
     MODEL_NAME: str = "Cachito-GPT"
-    MODEL_VERSION: str = "0.1.0"
+    MODEL_VERSION: str = __version__
     DESCRIPTION: str = "Sistema Generativo Local"
 
     # Obtener la ruta base del proyecto (la carpeta que contiene 'app')
