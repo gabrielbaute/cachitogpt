@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "GPT-Trainer"
-version = "0.0.0"
+version = "0.1.0"
 description = "Pequeña app para entrenar y generar tus propios modelos."
 authors = ["Gabriel Baute <gabrielbaute@gmail.com>"]
 license = "MIT"
