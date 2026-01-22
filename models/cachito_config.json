@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "model_name": "cachito",
+        "version": "0.1.0",
+        "created_at": "2026-01-21 16:48:51",
+        "device": "cpu"
+    },
+    "architecture": {
+        "vocab_size": 5000,
+        "d_model": 256,
+        "n_layers": 2,
+        "num_heads": 8,
+        "max_seq_len": 64,
+        "total_params": 4156416
+    },
+    "training_params": {
+        "epochs": 5,
+        "learning_rate": 0.0003,
+        "batch_size": 8,
+        "final_loss": 5.8963
+    },
+    "dataset": {
+        "path": "C:\\Users\\gabri\\Documents\\python\\microprocesadores\\gpt\\data\\ancor.txt",
+        "size_chars": 16345
+    }
+}
