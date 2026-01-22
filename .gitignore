@@ -12,7 +12,4 @@ logs/
 *.err
 
 # Modelos y data
-models/
-data/
-tokenizer/
 checkpoint/
