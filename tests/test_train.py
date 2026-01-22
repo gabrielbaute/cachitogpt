@@ -5,11 +5,11 @@ from app.settings import Config, setup_logging
 
 def main():
     # 1. Configuración de logs para ver qué ocurre internamente
-    setup_logging()
+    setup_logging(model_name="training")
     logger = logging.getLogger("TestValidation")
 
     # 2. Definir ruta del dataset pequeño
-    dataset_small: Path = Config.DATA_DIR / "ancor.txt"
+    dataset_small: Path = Config.DATA_DIR / "corpus_2.txt"
     
     if not dataset_small.exists():
         logger.error(f"No se encontró el archivo en {dataset_small}")
@@ -17,7 +17,7 @@ def main():
 
     # 3. Instanciar el Trainer
     # Usamos la configuración de Config directamente
-    trainer = TrainModule(config=Config, dataset_path=dataset_small, model_name="cachito")
+    trainer = TrainModule(config=Config, dataset_path=dataset_small, model_name="ortegagasset2", stride=8)
 
     # 4. (Opcional) Intentar cargar un checkpoint si quieres probar esa lógica
     # trainer.load_checkpoint(Config.MODEL_DIR / "checkpoint_epoch_2.pth")
