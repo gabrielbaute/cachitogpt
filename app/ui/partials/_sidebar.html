@@ -1,0 +1,30 @@
+<aside class="menu box">
+    <p class="menu-label">
+        <i class="fas fa-microchip mr-2"></i> Arquitectura
+    </p>
+    <ul class="menu-list">
+        <li><a><strong>Dimensión del Modelo:</strong> {{ info.architecture.d_model }}</a></li>
+        <li><a><strong>Capas:</strong> {{ info.architecture.n_layers }}</a></li>
+        <li><a><strong>Cabezas:</strong> {{ info.architecture.num_heads }}</a></li>
+        <li><a><strong>Contexto:</strong> {{ info.architecture.max_seq_len }} tokens</a></li>
+        <li><a><strong>Parámetros:</strong> {{ "{:,}".format(info.architecture.total_params) }}</a></li>
+    </ul>
+
+    <p class="menu-label">
+        <i class="fas fa-graduation-cap mr-2"></i> Entrenamiento
+    </p>
+    <ul class="menu-list">
+        <li><a><strong>Épocas:</strong> {{ info.training_params.epochs }}</a></li>
+        <li><a><strong>Loss Final:</strong> <span class="tag is-danger is-light">{{ info.training_params.final_loss }}</span></a></li>
+        <li><a><strong>LR:</strong> {{ info.training_params.learning_rate }}</a></li>
+    </ul>
+
+    <p class="menu-label">
+        <i class="fas fa-database mr-2"></i> Dataset
+    </p>
+    <div class="is-size-7 p-2">
+        <p class="has-text-grey-darker"><strong>Ruta:</strong></p>
+        <p class="is-family-code" style="word-break: break-all;">{{ info.dataset.path }}</p>
+        <p class="mt-2"><strong>Tamaño:</strong> {{ info.dataset.size_chars }} caracteres</p>
+    </div>
+</aside>

@@ -1,0 +1,22 @@
+<div class="box">
+    <div id="chat-container" style="height: 500px; overflow-y: auto; margin-bottom: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+        <div class="notification is-white shadow-sm">
+            <p>¡Bienvenido al sistema <strong>{{ app_name }}</strong>!</p>
+            <p class="is-size-7">Modelo cargado: <code>{{ info.metadata.model_name }}</code></p>
+        </div>
+    </div>
+
+    <form id="chat-form">
+        <div class="field has-addons">
+            <div class="control is-expanded">
+                <input id="user-input" class="input is-primary" type="text" placeholder="Escribir prompt..." required>
+            </div>
+            <div class="control">
+                <button type="submit" id="send-btn" class="button is-primary">
+                    <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="token-info" class="help has-text-right">A la espera de entrada...</div>

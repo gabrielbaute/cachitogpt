@@ -1,35 +1,16 @@
 {% extends "layouts/base.html" %}
 
-{% block title %}Chat Local{% endblock %}
+{% block title %}Panel de Control - {{ app_name }}{% endblock %}
 
 {% block content %}
-<div class="columns is-centered">
-    <div class="column is-8">
-        <div class="box">
-            <div id="chat-container" style="height: 500px; overflow-y: auto; margin-bottom: 20px; padding: 10px; border: 1px solid #f0f0f0; border-radius: 8px;">
-                <div class="notification is-light">
-                    ¡Bienvenido! Soy <strong>{{ app_name }}</strong>. ¿En qué puedo ayudarte hoy?
-                </div>
-            </div>
+<div class="columns">
+    <!-- Sidebar -->
+    <div class="column is-4">
+        {% include "partials/_sidebar.html"  %}
+    </div>
 
-            <form id="chat-form">
-                <div class="field has-addons">
-                    <div class="control is-expanded">
-                        <input id="user-input" class="input" type="text" placeholder="Escribe tu mensaje aquí..." required>
-                    </div>
-                    <div class="control">
-                        <button type="submit" id="send-btn" class="button is-primary">
-                            <span class="icon"><i class="fas fa-paper-plane"></i></span>
-                            <span>Enviar</span>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        
-        <p class="is-size-7 has-text-right has-text-grey" id="token-info">
-            Listo para procesar.
-        </p>
+    <div class="column is-8">
+        {% include "partials/_chat_section.html"  %}
     </div>
 </div>
 {% endblock %}

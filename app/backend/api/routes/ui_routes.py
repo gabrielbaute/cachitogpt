@@ -28,6 +28,14 @@ templates.context_processors.append(global_context)
 @router.get("/", response_class=HTMLResponse)
 async def get_index(request: Request):
     """
-    Renderiza la página principal del chat.
+    Renderiza la página principal e inyecta los metadatos del modelo activo.
     """
-    return templates.TemplateResponse("index.html", {"request": request})
+    from app.backend.api.routes.cachito_routes import service
+    
+    # Extraemos la arquitectura y parámetros del generador
+    model_info = service.generator.model_config
+    
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "info": model_info
+    })

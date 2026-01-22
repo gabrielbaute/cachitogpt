@@ -1,0 +1,28 @@
+/* app/ui/static/css/style.css */
+
+#chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chat-container::-webkit-scrollbar-thumb {
+    background: #dbdbdb;
+    border-radius: 10px;
+}
+
+.notification {
+    margin-bottom: 1rem !important;
+    border-left: 4px solid transparent;
+}
+
+.notification.is-info {
+    border-left-color: #3e8ed0;
+}
+
+.notification.is-success {
+    border-left-color: #48c78e;
+}
+
+.menu-list a {
+    font-size: 0.9rem;
+    padding: 0.5em 0.75em;
+}
