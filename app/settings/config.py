@@ -35,13 +35,13 @@ class Config:
     TRAINING_DATA_PATH: Path = DATA_DIR / "prueba.txt" # O el nombre que uses para tu corpus
 
     # GPT
-    VOCAB_SIZE: int = 5000
-    D_MODEL: int = 256     # 256 Min
-    N_LAYERS: int = 2      # 2 Min
+    VOCAB_SIZE: int = 50257 # Tamaño del vocabulario BPE
+    D_MODEL: int = 128      # 256 Min
+    N_LAYERS: int = 4       # 2 Min
     NUM_HEADS: int = 8
-    MAX_SEQ_LEN: int = 64  # Longitud de cada "frase" de entrenamiento (64 Min)
-    BATCH_SIZE: int = 8    # Cuántas frases procesamos a la vez (8 Min)
-    EPOCHS: int = 5        # Cuántas veces recorreremos el libro entero (5 Min)
+    MAX_SEQ_LEN: int = 64   # Longitud de cada "frase" de entrenamiento (64 Min)
+    BATCH_SIZE: int = 8     # Cuántas frases procesamos a la vez (8 Min)
+    EPOCHS: int = 4         # Cuántas veces recorreremos el libro entero (5 Min)
     LEARNING_RATE: float = 3e-4
 
     # ======= API ========
