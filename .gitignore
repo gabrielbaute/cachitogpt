@@ -13,3 +13,6 @@ logs/
 
 # Modelos y data
 checkpoint/
+
+# Archivos de entorno
+.env
