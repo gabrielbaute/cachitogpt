@@ -1,5 +1,9 @@
+import os
+from dotenv import load_dotenv
 from pathlib import Path
 from typing import Dict
+
+load_dotenv()  # Cargar variables de entorno desde un archivo .env si existe
 
 __version__ = "0.1.0"
 
@@ -35,14 +39,15 @@ class Config:
     TRAINING_DATA_PATH: Path = DATA_DIR / "prueba.txt" # O el nombre que uses para tu corpus
 
     # GPT
-    VOCAB_SIZE: int = 50257 # Tamaño del vocabulario BPE
-    D_MODEL: int = 128      # 256 Min
-    N_LAYERS: int = 4       # 2 Min
-    NUM_HEADS: int = 8
-    MAX_SEQ_LEN: int = 64   # Longitud de cada "frase" de entrenamiento (64 Min)
-    BATCH_SIZE: int = 8     # Cuántas frases procesamos a la vez (8 Min)
-    EPOCHS: int = 4         # Cuántas veces recorreremos el libro entero (5 Min)
-    LEARNING_RATE: float = 3e-4
+    VOCAB_SIZE: int = int(os.getenv("VOCAB_SIZE", 50257)) # Tamaño del vocabulario BPE
+    D_MODEL: int = int(os.getenv("D_MODEL", 256))      # 256 Min
+    N_LAYERS: int = int(os.getenv("N_LAYERS", 8))       # 2 Min
+    NUM_HEADS: int = int(os.getenv("NUM_HEADS", 4))     # 4 Min
+    MAX_SEQ_LEN: int = int(os.getenv("MAX_SEQ_LEN", 128))  # Longitud de cada "frase" de entrenamiento (64 Min)
+    BATCH_SIZE: int = int(os.getenv("BATCH_SIZE", 4))    # Cuántas frases procesamos a la vez (8 Min)
+    EPOCHS: int = int(os.getenv("EPOCHS", 10))         # Cuántas veces recorreremos el libro entero (5 Min)
+    LEARNING_RATE: float = float(os.getenv("LEARNING_RATE", 3e-4)) # Tasa de aprendizaje del optimizador
+    STRIDE: int = int(os.getenv("STRIDE", 4))            # Desplazamiento para la ventana de atención
 
     # ======= API ========
     
